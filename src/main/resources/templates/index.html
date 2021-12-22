@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Community</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/community.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1758372_iu83tgg8gw.css">
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/moment.min.js"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+
+</head>
+<script type="application/javascript">
+    debugger;
+    window.onload = function () {
+        var closable = window.localStorage.getItem("closable");
+        if (closable == "true") {
+            window.close();
+            window.localStorage.removeItem("closable");
+        }
+    }
+</script>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 page-left">
+            <h2 class="headline"><i class="iconfont icon-wenti index_ali_icon"></i></span>Explore</h2>
+            <ul class="nav nav-tabs hot_title">
+                <li role="presentation" th:class="${sort == 'new' || sort == null ? 'active':''}">
+                    <a th:href="@{/(sort='new')}">
+                        <span class="glyphicon glyphicon-fire ">New</span>
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'hot30' ? 'active':''}">
+                    <a th:href="@{/(sort='hot30')}">
+                        <span class="glyphicon glyphicon-fire hot_question_logo">Top_30</span>
+                    </a>
+                </li>
+                <li role="presentation" th:class="${sort == 'hot7' ? 'active':''}">
+                    <a th:href="@{/(sort='hot7')}">
+                        <span class="glyphicon glyphicon-fire hot_question_logo">Top_7</span>
+                    </a>
+
+                </li>
+                <li role="presentation" th:class="${sort == 'hot' ? 'active':''}">
+                    <a th:href="@{/(sort='hot')}">
+                        <span class="glyphicon glyphicon-fire hot_question_logo">Hottest</span>
+                    </a>
+
+                </li>
+                <li role="presentation" th:class="${sort == 'no' ? 'active':''}">
+                    <a th:href="@{/(sort='no')}">
+                        <span class="glyphicon glyphicon-fire">Eliminate_0_Comment</span>
+                    </a>
+                </li>
+            </ul>
+
+
+            <div class="media" th:each="question : ${pagination.data}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded" th:src="${question.user.avatarUrl}">
+                    </a>
+
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>
+                    </h4>
+                    <span class="label label-info question-tag" th:each="tag : ${question.tag.split(',')}">
+                          <span class="glyphicon glyphicon-tags"></span>
+                          <span class="label label-info" th:text="${tag}"></span>
+                    </span>
+                    <!--<span th:text="${#strings.abbreviate(question.description,10)}"></span> <br>-->
+                    <span class="question_info"> <span th:text="${question.commentCount}"></span> replies •<span
+                            th:text="${question.viewCount}"></span> view • <span
+                            th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd')}"></span></span>
+                    <hr>
+
+                </div>
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li th:if="${pagination.showFirstPage}">
+                        <a th:href="@{/(page=1,search=${search},tag=${tag},sort=${sort})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${pagination.showPrevious}">
+                        <a th:href="@{/(page=${pagination.page - 1},search=${search},tag=${tag},sort=${sort})}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+
+                    <li th:each="page : ${pagination.pages}" th:class="${pagination.page == page}? 'active': ''">
+                        <a th:href="@{/(page = ${page},search=${search},tag=${tag},sort=${sort})}" th:text="${page}">
+                        </a>
+                    </li>
+                    <li th:if="${pagination.showNext}">
+                        <a th:href="@{/(page=${pagination.page + 1},search=${search},tag=${tag},sort=${sort})}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li th:if="${pagination.showEndPage}">
+                        <a th:href="@{/(page=${pagination.totalPage},search=${search},tag=${tag},sort=${sort})}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 class="headline"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Easter Egg
+                </h3>
+                <img class="img-thumbnail question-egg" src="/images/iceman.png">
+
+            </div>
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12 page-right-line">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hot_tag">
+
+                <h4>
+                    <i class="iconfont icon-LOL-xiaolong tag_ali_icon"></i>
+                    <!--                    <span class="glyphicon glyphicon-grain"></span>-->
+                    Hot tags
+                </h4>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 hot-tag-list">
+
+                    <span class="label label-info hot_tag_list" th:each="tag : ${tags}">
+                         <a th:href="@{/(page=1,search=${search},tag=${tag})}">
+                          <span class="glyphicon glyphicon-tags hot_tag_style"></span>
+                          <span class="label label-info" th:text="${tag}"></span>
+                         </a>
+                    </span>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>
