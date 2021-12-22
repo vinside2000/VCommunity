@@ -6,7 +6,7 @@
 - 基于jQuery和ajax实现和服务端异步传输数据来发送和校验验证码
 - 基于MyBatis实现对数据库的增删改查。
 - 基于BootStrap、CSS优化页面
-- 调用阿里云、QQ接口以及Github接口实现第三方登录和编写Markdown和上传图片
+- 调用码云、QQ接口以及Github接口实现第三方登录和编写Markdown和上传图片
 - 采用Git将项目上传到Github
 
 
