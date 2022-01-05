@@ -2794,7 +2794,8 @@ select[multiple].input-lg {
   height: 34px;
   line-height: 34px;
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 .input-lg + .form-control-feedback,
 .input-group-lg + .form-control-feedback,

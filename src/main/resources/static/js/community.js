@@ -191,8 +191,9 @@ function sendActiveEmail() {
             alert(data.message);
         }
     });
-    
+
 }
+
 
 function sendModifyEmail() {
     var email= $('input[name="email"]').val();
@@ -218,12 +219,12 @@ function invokeSetTime(obj) {
     function setTime(obj) {
         if (countdown === 0) {
             $(obj).attr("disabled", false);
-            $(obj).text("GetCode");
+            $(obj).text("获取验证码");
             countdown = 60;
             return;
         } else {
             $(obj).attr("disabled", true);
-            $(obj).text("(" + countdown + ") s resend");
+            $(obj).text("(" + countdown + ") 秒后重试");
             countdown--;
         }
         setTimeout(function () {

@@ -31,7 +31,7 @@
             <ul class="nav nav-tabs hot_title">
                 <li role="presentation" th:class="${sort == 'new' || sort == null ? 'active':''}">
                     <a th:href="@{/(sort='new')}">
-                        <span class="glyphicon glyphicon-fire ">New</span>
+                        <span class="glyphicon glyphicon-fire ">最新</span>
                     </a>
                 </li>
                 <li role="presentation" th:class="${sort == 'hot30' ? 'active':''}">
@@ -47,13 +47,13 @@
                 </li>
                 <li role="presentation" th:class="${sort == 'hot' ? 'active':''}">
                     <a th:href="@{/(sort='hot')}">
-                        <span class="glyphicon glyphicon-fire hot_question_logo">Hottest</span>
+                        <span class="glyphicon glyphicon-fire hot_question_logo">最热</span>
                     </a>
 
                 </li>
                 <li role="presentation" th:class="${sort == 'no' ? 'active':''}">
                     <a th:href="@{/(sort='no')}">
-                        <span class="glyphicon glyphicon-fire">Eliminate_0_Comment</span>
+                        <span class="glyphicon glyphicon-fire">消灭0回复</span>
                     </a>
                 </li>
             </ul>
@@ -75,8 +75,8 @@
                           <span class="label label-info" th:text="${tag}"></span>
                     </span>
                     <!--<span th:text="${#strings.abbreviate(question.description,10)}"></span> <br>-->
-                    <span class="question_info"> <span th:text="${question.commentCount}"></span> replies •<span
-                            th:text="${question.viewCount}"></span> view • <span
+                    <span class="question_info"> <span th:text="${question.commentCount}"></span> 回复 •<span
+                            th:text="${question.viewCount}"></span> 阅读 • <span
                             th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd')}"></span></span>
                     <hr>
 
@@ -130,7 +130,7 @@
                 <h4>
                     <i class="iconfont icon-LOL-xiaolong tag_ali_icon"></i>
                     <!--                    <span class="glyphicon glyphicon-grain"></span>-->
-                    Hot tags
+                    热门标签
                 </h4>
                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 hot-tag-list">
 

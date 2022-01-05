@@ -18,14 +18,14 @@
 <div class="container-fluid main" >
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 page-left">
-            <h2 class="headline"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>publish</h2>
+            <h2 class="headline"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发布</h2>
             <hr>
 
             <form action="/publish" method="post">
                 <input type="hidden" name = "id" th:value="${id}">
                 <div class="form-group">
-                    <label for="title">title(brief)</label>
-                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" autocomplete="off" placeholder="input a title">
+                    <label for="title">标题</label>
+                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" autocomplete="off" placeholder="输入标题">
                 </div>
                 <div class="form-group" id="question-editor">
                     <label for="title">complete the question(please obey tips)</label>
@@ -39,7 +39,7 @@
                             path   : "/js/lib/",
                             delay  : 0,
                             watch  : false,
-                            placeholder : "Please input question description",
+                            placeholder : "请输入问题描述",
                             imageUpload    : true,
                             imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                             imageUploadURL : "/file/upload",
@@ -47,9 +47,9 @@
                     });
                 </script>
                 <div class="form-group">
-                    <label for="title">AddTag</label>
+                    <label for="title">添加标签</label>
                     <input type="text" class="form-control" id="tag" th:value="${tag}"
-                           name="tag" autocomplete="off" placeholder="input a tag" onclick="showSelectTag()" >
+                           name="tag" autocomplete="off" placeholder="输入标签" onclick="showSelectTag()" >
                     <div id="select-tag" class="publish-tag-tab">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                            <button type="submit" class="btn btn-success btn-publish">publish</button>
+                            <button type="submit" class="btn btn-success btn-publish">发布</button>
                         </div>
 
                     </div>
@@ -91,10 +91,10 @@
             </form>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>QuestionGuide</h3>
-            • Questions title: please describe the problem you posted in a concise language<br>
-            • Question supplement: supplement your question in detail<br>
-            • Select tags: select one or more appropriate tags, separated by commas<br>
+            <h3>问题向导</h3>
+            • 标题：请用简洁的语言描述您发布的问题<br>
+            • 问题补充：详细补充您的问题<br>
+            • 选择标签：选择一个或多个合适的标签，以逗号分隔<br>
         </div>
     </div>
 </div>

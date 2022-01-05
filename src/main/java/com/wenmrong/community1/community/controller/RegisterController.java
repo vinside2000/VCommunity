@@ -28,7 +28,6 @@ public class RegisterController {
     @GetMapping("/register")
     public String register() {
 
-
         return "register";
     }
 
@@ -72,9 +71,9 @@ public class RegisterController {
                 .andAccountIdEqualTo(email);
         List<User> users = userMapper.selectByExample(userExample);
         if (users != null && users.size() != 0) {
-            return ResultDTO.errorOf(300,"Email already signup,please go to login ");
+            return ResultDTO.errorOf(300,"该邮箱已被注册！");
         }
-        String activeCode = userService.sendEmail(email,"ActiveCode");
+        String activeCode = userService.sendEmail(email,"有效验证码");
         Cookie cookie = new Cookie("activeCode", activeCode);
         cookie.setPath("/");
         cookie.setMaxAge(60 * 5);

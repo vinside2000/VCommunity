@@ -48,10 +48,10 @@ public class UserService {
         //创建激活码
         String code = randomCodeService.createActiveCode();
         //主题
-        String subject = "来自Autodidact网站的激活邮件";
+        String subject = "来自V沙灵网站的激活邮件";
         //上面的激活码发送到用户注册邮箱
         //  String context = "<a href=\"http://localhost:8887/checkCode?code="+code+"\">激活请点击:"+code+"</a>";
-        String context = "<a href=\"\">Please complete in 5 minutes "+character+":"+code+"</a>";
+        String context = character+":" + "</br>" + "<h3 style='text-indent:2em'>" + code + "</h3>" + "<br>" +"<p style='color:red'>请于五分钟内输入有效</p>";
         //发送激活邮件
         mailService.sendMimeMail (email,subject,context);
         return code;

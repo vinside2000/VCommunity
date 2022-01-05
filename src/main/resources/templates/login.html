@@ -25,32 +25,32 @@
         <div class="row login-page-main">
             <div class="login-left col-lg-8 col-md-8 col-sm-8 col-xs-8">
                 <div class="login-logo">
-                    <i class="iconfont icon-LOL-xiaguxianfeng login_ali_icon"></i>
-                    <b><a class="logo" href="/">V Community</a></b>
+<!--                    <i class="iconfont icon-LOL-xiaguxianfeng login_ali_icon"></i>-->
+                    <b><a class="logo" href="/">V沙灵</a></b>
                 </div>
                 <form class="login-form" action="/login" method="post"
                       data-validator-option="{theme:'yellow_right_effect', stopOnError:true}">
                     <div class="form-group">
                         <label for="login-email">
-                            <img src="/icons/envelope-open.svg" class="login-icon">&nbsp;email
+                            <img src="/icons/envelope-open.svg" class="login-icon">&nbsp;邮箱
                         </label>
                         <input type="email" class="form-control" id="login-email" placeholder="Email"
                                name="email" data-rule="邮箱: required; email">
                     </div>
                     <div class="form-group">
                         <label for="login-pwd">
-                            <img src="/icons/lock.svg" class="login-icon">&nbsp;password
+                            <img src="/icons/lock.svg" class="login-icon">&nbsp;密码
                         </label>
                         <input type="password" class="form-control" id="login-pwd" placeholder="Password"
                                name="password" data-rule="密码:required;length(6~16)">
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input id="remember-me" type="checkbox" name="rememberFlag">remember me
+                            <input id="remember-me" type="checkbox" name="rememberFlag">记住我
                         </label>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary btn-publish">Login</button>
+                        <button type="submit" class="btn btn-primary btn-publish">登录</button>
                         <div th:if="${loginFail!=null}">
                             <span class="red">Please input correct info</span>
                             <button type="submit" class="btn btn-primary btn-publish" onclick="modify()">forget password</button>
@@ -61,13 +61,13 @@
             </div>
             <div class="login-right col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <div class="login-other-all">
-                    <h4>Third party login</h4>
+                    <h4>第三方登录</h4>
 <!--                    <a class="login-other" th:href="@{https://github.com/login/oauth/authorize(client_id='986f76ff5110ae7d2b9c',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">-->
-                    <a class="login-other" th:href="@{https://github.com/login/oauth/authorize(client_id='986f76ff5110ae7d2b9c',redirect_uri='http://192.168.123.125:8887/callback',scope='user',state=1)}">
+                    <a class="login-other" th:href="@{https://github.com/login/oauth/authorize(client_id='986f76ff5110ae7d2b9c',redirect_uri='http://192.168.31.197:8887/callback',scope='user',state=1)}">
                         <img src="/images/github.svg" class="login-icon">
                         Github
                     </a>
-                    <a href="https://gitee.com/oauth/authorize?client_id=6a6a16972da7a6b3ed9d1dbf91f13571b0f705ce4325ed9b3e7413f1b53d79a6&amp;redirect_uri=http://192.168.123.125:8887/giteeCallback&amp;response_type=code&amp;scope=user_info&amp;state=giteelogin"
+                    <a href="https://gitee.com/oauth/authorize?client_id=6a6a16972da7a6b3ed9d1dbf91f13571b0f705ce4325ed9b3e7413f1b53d79a6&amp;redirect_uri=http://192.168.31.197:8887/giteeCallback&amp;response_type=code&amp;scope=user_info&amp;state=giteelogin"
                        class="login-other">
                         <img src="/images/gitee.svg" class="login-icon">
                         Gitee
@@ -82,15 +82,15 @@
         </div>
         <div class="login-page-footer">
             <img src="/icons/info.svg" class="login-icon">&nbsp;
-            <b>New to Autodidact?  <a href="/register">Create an account</a></b>
+            <b>没有账号?  <a href="/register">创建一个新账号</a></b>
         </div>
     </div>
 </div>
 
 <!--页尾-->
 <div class="footer-word">
-    Copyright © 2020 · Autodidact ·
-    粤ICP备20210887号-1
+    Copyright © 2021 · Autodidact ·
+    粤ICP备20210366号-1
     All rights reserved
 </div>
 <script>

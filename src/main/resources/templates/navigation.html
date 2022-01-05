@@ -53,7 +53,7 @@
                     <li th:if="${session.user!= null}">
                         <div class="AliLogo-box">
                             <i class="iconfont icon-fabu navbar_ali_icon"></i>
-                            <a href="/publish">publish</a>
+                            <a href="/publish">发布</a>
                         </div>
 
                     </li>
@@ -61,14 +61,14 @@
 
                         <div class="AliLogo-box">
                             <i class="iconfont icon-bizhi navbar_ali_icon"></i>
-                            <a  href="/wallpaper" style="text-decoration:none;">wallpaper</a>
+                            <a  href="/wallpaper" style="text-decoration:none;">壁纸</a>
                         </div>
                     </li>
 
                     <li th:if="${session.user!= null}">
                         <div class="AliLogo-box">
                             <i class="iconfont icon-youjian navbar_ali_icon"></i>
-                            <a href="/profile/replies" th:if="${session.user != null}">notice <span class="badge">
+                            <a href="/profile/replies" th:if="${session.user != null}">消息 <span class="badge">
                             <span th:text="${session.unreadCount}"></span>
                             </span>
                             </a>
@@ -84,9 +84,9 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/profile/questions">My Questions</a></li>
-                                <li><a href="/modifyProfile">Modify Profile</a></li>
-                                <li><a href="/logout">Logout</a></li>
+                                <li><a href="/profile/questions">我的帖子</a></li>
+                                <li><a href="/modifyProfile">我的头像</a></li>
+                                <li><a href="/logout">退出</a></li>
 
                             </ul>
                         </div>
